@@ -10,17 +10,10 @@ def menu():
     if lengthCheck(passwd) and charCheck(passwd) and upperCheck(passwd) and lowerCheck(passwd) and checkNum(passwd) and dictCheck(passwd) == True:
         print(f"This Password {passwd} is very strong")
 def home():
-    count = 1
-    if count == 1:
-        pass
-        print("Welcome to the password tester program")
-        print("Please enter your password for strength testing")
-        print("************************************************")
-        count += 1
-        passwd = input(">")
-    elif count > 1:
-        print("Enter passwd again!")
-        passwd = input(">")
+    print("Welcome to the password tester program")
+    print("Please enter your password for strength testing")
+    print("************************************************")
+    passwd = input(">")
     if lengthCheck(passwd) and charCheck(passwd) and upperCheck(passwd) and lowerCheck(passwd) and checkNum(passwd) and dictCheck(passwd) == True:
         print(f"This Password {passwd} is very strong")
 def lengthCheck(passwd):
