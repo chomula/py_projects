@@ -4,15 +4,23 @@ Created on Wed Jun  2 15:52:51 2021
 
 @author: cmulanshi
 """
-
-
-
-def homePage():
-    pass
-    print("Welcome to the password tester program")
-    print("Please enter your password for strength testing")
-    print("************************************************")
+def menu():
+    print("Enter passwd again!")
     passwd = input(">")
+    if lengthCheck(passwd) and charCheck(passwd) and upperCheck(passwd) and lowerCheck(passwd) and checkNum(passwd) and dictCheck(passwd) == True:
+        print(f"This Password {passwd} is very strong")
+def home():
+    count = 1
+    if count == 1:
+        pass
+        print("Welcome to the password tester program")
+        print("Please enter your password for strength testing")
+        print("************************************************")
+        count += 1
+        passwd = input(">")
+    elif count > 1:
+        print("Enter passwd again!")
+        passwd = input(">")
     if lengthCheck(passwd) and charCheck(passwd) and upperCheck(passwd) and lowerCheck(passwd) and checkNum(passwd) and dictCheck(passwd) == True:
         print(f"This Password {passwd} is very strong")
 def lengthCheck(passwd):
@@ -21,7 +29,7 @@ def lengthCheck(passwd):
     if len(passwd) < 10 or len(passwd) < 0:
         print("Invalid password length, your password is too short")
         print("Enter a password with atleast 10 characters.")
-        homePage()
+        menu()
         return False
     else:
         return True
@@ -38,7 +46,7 @@ def charCheck(passwd):
         
     if has_char == False:
         print("Your password has NO special characters e.g @#")
-        homePage()
+        menu()
         return False
     else:
         return True
@@ -50,12 +58,11 @@ def upperCheck(passwd):
     has_upper = False
     for c in passwd:
         if c in upperCase:
-            #print(c)
             has_upper = True
             continue
     if has_upper == False:
         print("There are NO capital letters in your password")
-        homePage()
+        menu()
         return False
     else:
         return True
@@ -72,7 +79,7 @@ def lowerCheck(passwd):
             continue
     if has_lower == False:
         print("There are no lower case letters in your pass word")
-        homePage()
+        menu()
         return False
     else:
         return True
@@ -93,7 +100,7 @@ def checkNum(passwd):
             
     if has_num == False:
         print("Your password must atleast contain a number")
-        homePage()
+        menu()
         return False
     else:
         return True
@@ -107,7 +114,7 @@ def dictCheck(passwd):
         passList.append(line.strip("\n"))
     if passwd in passList:
         print("WARNING!!Your password was found in a local dictionary")
-        homePage()
+        menu()
         return False
     else:
         fhandle2 = open("dict.txt",'a')
@@ -116,4 +123,4 @@ def dictCheck(passwd):
         return True
 
 
-homePage()
+home()
