@@ -10,5 +10,9 @@ kulibe
 kulibe
 kulibe
 sexisbad
+<<<<<<< HEAD
 Choolwe@Mulanshi1
 Chomula!@as202i
+=======
+
+>>>>>>> origin/main
